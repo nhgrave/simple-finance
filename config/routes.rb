@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  get '/home' => 'home#index', as: :home
+  resource :session, only: [ :new, :create, :destroy ]
+  resource :registration, only: [ :new, :create ]
 
-  root 'home#index'
+  root to: 'home#index'
 
 end
