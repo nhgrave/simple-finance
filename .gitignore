@@ -17,7 +17,7 @@
 # Ignore uploaded files in development.
 /storage/*
 /tmp/storage/*
-
+/node_modules
 /public/assets
 
 # Ignore master key for decrypting credentials and more.
