@@ -1,16 +1,31 @@
-<%= form_with model: @user, url: registration_path, method: :post do |form| %>
-  <%= render partial: "shared/form_errors", locals: { object: form.object } %>
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email, required: true %>
+<div class="row justify-content-center">
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    <h2 class="text-center">Register</h2>
+    <%= form_with model: @user, url: registration_path, method: :post do |form| %>
+      <%= render partial: "shared/form_errors", locals: { object: form.object } %>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="mb-3">
+            <%= form.label :email, class: "form-label" %>
+            <%= form.email_field :email, required: true, class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :password, class: "form-label" %>
+            <%= form.password_field :password, required: true, class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :password_confirmation, class: "form-label" %>
+            <%= form.password_field :password_confirmation, required: true, class: "form-control" %>
+          </div>
+
+          <%= form.submit "Sign Up", class: "btn btn-primary w-100 mb-2" %>
+          <p class="text-center mb-1">or</p>
+          <%= link_to "Back to Login", new_session_path, class: "btn btn-link w-100" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password, required: true %>
-  </div>
-  <div>
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, required: true %>
-  </div>
-  <%= form.submit "Sign Up" %>
-<% end %>
+</div>

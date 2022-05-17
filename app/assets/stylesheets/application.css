@@ -17,3 +17,7 @@
  html, body {
    background-color: #e7e7e7;
  }
+
+ .public-layout {
+   margin-top: 130px;
+ }
