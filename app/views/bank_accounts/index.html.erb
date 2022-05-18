@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-between">
+  <h2 class="mb-0">Bank Account</h2>
+  <%= link_to "Add", new_bank_account_path, class: "btn btn-primary" %>
+</div>
+
+<hr>
+
+<%- if @bank_accounts.exists? %>
+  <%- @bank_accounts.each do |bank_account| %>
+    <div class="<%= "card mb-3 #{bank_account.active? ? '' : 'bg-inactive'}" %>">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <small class="text-muted">Name:</small>
+            <%= bank_account.name %>
+          </div>
+          <div class="col-md-5 col-10">
+            <small class="text-muted">Active:</small>
+            <%= bank_account.active %>
+          </div>
+          <div class="col-md-1 col-2 text-end">
+            <%= link_to "Edit", [ :edit, bank_account ] %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<%- else %>
+  <p>No records found</p>
+<% end %>

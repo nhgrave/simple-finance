@@ -21,3 +21,7 @@
  .public-layout {
    margin-top: 130px;
  }
+
+ .bg-inactive {
+   background-color: #d3d3d3;
+ }

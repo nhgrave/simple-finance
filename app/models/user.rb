@@ -2,6 +2,9 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  has_many :bank_accounts, class_name: "BankAccount"
+  has_many :categories   , class_name: "Category"
+
   before_save :downcase_email
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true, uniqueness: true

@@ -1,0 +1,21 @@
+<%= form_with url: @bank_account.persisted? ? @bank_account : bank_accounts_path, scope: :bank_account, method: (@bank_account.persisted? ? :put : :post) do |form| %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <div class="mb-3">
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, required: true, class: "form-control" %>
+      </div>
+
+      <div class="mb-3 form-check">
+        <%= form.check_box :active, class: "form-check-input" %>
+        <%= form.label :active, class: "form-check-label" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center">
+    <%= form.submit "Save", class: "btn btn-primary" %>
+    <p class="text-center ms-2 mb-0">or</p>
+    <%= link_to "Cancel", :back, class: "btn btn-outline-danger ms-2" %>
+  </div>
+<% end %>

@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-between">
+  <h2 class="mb-0">Categories</h2>
+  <%= link_to "Add", new_category_path, class: "btn btn-primary" %>
+</div>
+
+<hr>
+
+<%- if @categories.exists? %>
+  <%- @categories.each do |category| %>
+    <div class="<%= "card mb-3 #{category.active? ? '' : 'bg-inactive'}" %>">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <small class="text-muted">Name:</small>
+            <%= category.name %>
+          </div>
+          <div class="col-md-5 col-10">
+            <small class="text-muted">Active:</small>
+            <%= category.active %>
+          </div>
+          <div class="col-md-1 col-2 text-end">
+            <%= link_to "Edit", [ :edit, category ] %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<%- else %>
+  <p>No records found</p>
+<% end %>
