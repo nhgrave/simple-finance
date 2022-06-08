@@ -16,6 +16,7 @@ class Operation < ApplicationRecord
 
   def amount= value
     write_attribute :amount, value.to_f.abs
+    set_total
   end
 
   def flow_out?
