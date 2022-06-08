@@ -20,6 +20,9 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
+              <%= link_to "Finances", operations_path, class: "dropdown-item" %>
+            </li>
+            <li>
               <%= link_to "Bank Accounts", bank_accounts_path, class: "dropdown-item" %>
             </li>
             <li>
@@ -31,7 +34,7 @@
 
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
-          <%= link_to "Logout", session_path, class: "nav-link", data:{ 'turbo-method': :delete } %>
+          <%= link_to "Logout", session_path, class: "nav-link", data:{ turbo_method: :delete } %>
         </li>
       </ul>
     </div>

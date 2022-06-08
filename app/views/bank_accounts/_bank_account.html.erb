@@ -1,0 +1,17 @@
+<div class="<%= "card mb-3 #{bank_account.active? ? '' : 'bg-inactive'}" %>">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6">
+        <small class="text-muted">Name:</small>
+        <%= bank_account.name %>
+      </div>
+      <div class="col-md-5 col-10">
+        <small class="text-muted">Active:</small>
+        <%= bank_account.active %>
+      </div>
+      <div class="col-md-1 col-2 text-end">
+        <%= link_to "Edit", [ :edit, bank_account ] %>
+      </div>
+    </div>
+  </div>
+</div>

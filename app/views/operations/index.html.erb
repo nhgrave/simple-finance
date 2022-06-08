@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-between">
+  <h2 class="mb-0">Operations</h2>
+  <%= link_to "Add", new_operation_path, class: "btn btn-primary" %>
+</div>
+
+<hr>
+
+<div class="card">
+  <div class="table-responsive">
+    <table class="table table-striped mb-0">
+      <thead>
+        <tr>
+          <th class="text-nowrap">Due at</th>
+          <th class="text-nowrap">Description</th>
+          <th class="text-nowrap">Bank Account</th>
+          <th class="text-nowrap">Amount</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- if @operations.exists? %>
+          <%- @operations.each do |operation| %>
+            <%= render 'operation', operation: operation %>
+          <% end %>
+        <%- else %>
+          <tr>
+            <td colspan=5 class="text-center">No records found</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

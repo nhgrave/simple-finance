@@ -16,5 +16,5 @@ development:
 production:
   adapter: postgresql
   encoding: unicode
-  url: <%= ENV.fetch("DATABASE_URL") %>
+  url: <%= ENV.fetch("DATABASE_URL") { '' } %>
   database: simple_finance_production

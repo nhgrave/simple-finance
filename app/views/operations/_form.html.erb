@@ -1,0 +1,70 @@
+<%= form_with url: @operation.persisted? ? @operation : operations_path, scope: :operation, method: (@operation.persisted? ? :put : :post) do |form| %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-6 mb-3 d-flex align-items-end">
+          <%= form.radio_button :flow_in, true, checked: @operation.flow_in?, class: "btn-check" %>
+          <label class="btn btn-outline-success" for="operation_flow_in_true">Flow In</label>
+
+          <%= form.radio_button :flow_in, false, checked: @operation.flow_out?, class: "btn-check" %>
+          <label class="btn btn-outline-danger ms-2" for="operation_flow_in_false">Flow Out</label>
+        </div>
+
+        <div class="col-6 mb-3">
+          <%= form.label :issue_at, class: "form-label" %>
+          <%= form.date_field :issue_at, required: true, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :description, class: "form-label" %>
+        <%= form.text_field :description, required: true, class: "form-control" %>
+      </div>
+
+      <div class="row">
+        <div class="col-6 mb-3">
+          <%= form.label :amount, class: "form-label" %>
+          <%= form.number_field :amount, value: number_to_currency(@operation.amount.to_f, delimiter: '', unit: ''), step: :any, required: true, class: "form-control" %>
+        </div>
+
+        <div class="col-6 mb-3">
+          <%= form.label :due_at, class: "form-label" %>
+          <%= form.date_field :due_at, required: true, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 mb-3 d-flex align-items-end">
+          <%= form.radio_button :paid, true, checked: @operation.paid?, class: "btn-check" %>
+          <label class="btn btn-outline-success" for="operation_paid_true">Paid</label>
+
+          <%= form.radio_button :paid, false, checked: @operation.open?, class: "btn-check" %>
+          <label class="btn btn-outline-danger ms-2" for="operation_paid_false">Open</label>
+        </div>
+
+        <div class="col-6 mb-3">
+          <%= form.label :paid_at, class: "form-label" %>
+          <%= form.date_field :paid_at, required: true, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 mb-3">
+          <%= form.label :bank_account, class: "form-label" %>
+          <%= form.select :bank_account_id, bank_account_options_for_select(id: @operation.bank_account_id), { prompt: true, required: true }, { class: "form-select" } %>
+        </div>
+
+        <div class="col-6 mb-3">
+          <%= form.label :category, class: "form-label" %>
+          <%= form.select :category_id, category_options_for_select(id: @operation.category_id), { include_blank: true }, { class: "form-select" } %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center">
+    <%= form.submit "Save", class: "btn btn-primary" %>
+    <p class="text-center ms-2 mb-0">or</p>
+    <%= link_to "Cancel", :back, class: "btn btn-outline-danger ms-2" %>
+  </div>
+<% end %>

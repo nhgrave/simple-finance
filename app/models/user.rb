@@ -2,6 +2,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  has_many :operations   , class_name: "Operation"
   has_many :bank_accounts, class_name: "BankAccount"
   has_many :categories   , class_name: "Category"
 

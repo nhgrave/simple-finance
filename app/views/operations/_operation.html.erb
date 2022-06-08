@@ -1,0 +1,10 @@
+<tr>
+  <td class="text-nowrap"><%= operation.paid_at.to_date %></td>
+  <td><%= operation.description %></td>
+  <td><%= operation.bank_account.name %></td>
+  <td><%= operation.amount %></td>
+  <td class="text-end">
+    <%= link_to 'Edit', [ :edit, operation ] %>
+    <%= link_to 'Destroy', operation, class: "text-danger ms-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  </td>
+</tr>
