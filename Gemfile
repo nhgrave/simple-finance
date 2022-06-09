@@ -59,6 +59,7 @@ group :development, :test do
   gem 'rspec-mocks'
   gem 'rspec-support'
   gem 'fuubar'
+  gem 'rails-controller-testing'
 end
 
 group :test do
