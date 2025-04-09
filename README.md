@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple finance project
 
-Things you may want to cover:
+## Construa os containers
 
-* Ruby version
+docker-compose build
 
-* System dependencies
+## Instale as gems (caso dê erro de dependência):
 
-* Configuration
+docker-compose run web bundle install
 
-* Database creation
+## Crie o banco de dados
 
-* Database initialization
+docker-compose run web rails db:create
 
-* How to run the test suite
+## Rodar migrações
 
-* Services (job queues, cache servers, search engines, etc.)
+docker-compose run web rails db:migrate
 
-* Deployment instructions
+## Rodar projeto
 
-* ...
+docker-compose up

@@ -4,9 +4,11 @@
 #
 # This workflow will install a prebuilt Ruby version, install dependencies, and run tests.
 name: "Ruby on Rails CI"
+
 on:
   push:
     branches: [ "main" ]
+
 jobs:
   Test:
     runs-on: ubuntu-latest
